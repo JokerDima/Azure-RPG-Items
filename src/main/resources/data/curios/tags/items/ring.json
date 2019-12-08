@@ -1,0 +1,9 @@
+{ 
+   "replace":"false",
+   "values":[ 
+      "azurerpgitems:ring1",
+      "azurerpgitems:ring2",
+      "azurerpgitems:ring3",
+      "azurerpgitems:ring4"
+   ]
+}

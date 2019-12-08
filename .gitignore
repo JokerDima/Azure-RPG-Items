@@ -1,0 +1,22 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+
+src/main/resources/assets/azurerpgitems/textures
+Build.bat
+gradle/wrapper
+gradlew
+gradlew.bat
+gradle.properties
