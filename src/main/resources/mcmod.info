@@ -1,0 +1,15 @@
+[
+{
+  "modid": "azurerpgitems",
+  "name": "Azure RPG Items",
+  "description": "This is a small RPG mod with built in support with Mine and Slash and Baubles.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/azure-rpg-items",
+  "updateUrl": "",
+  "authorList": ["AzureDoomC"],
+  "logoFile": "azurerpglogo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

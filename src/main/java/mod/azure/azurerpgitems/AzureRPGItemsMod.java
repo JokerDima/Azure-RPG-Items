@@ -3,72 +3,44 @@ package mod.azure.azurerpgitems;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import mod.azure.azurerpgitems.config.Config;
+import mod.azure.azurerpgitems.config.ModConfig;
+import mod.azure.azurerpgitems.proxy.CommonProxy;
 import mod.azure.azurerpgitems.util.MineSlashHandler;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
-import top.theillusivec4.curios.api.CuriosAPI;
-import top.theillusivec4.curios.api.imc.CurioIMCMessage;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(AzureRPGItemsMod.MODID)
+@Mod(modid = AzureRPGItemsMod.MODID, version = AzureRPGItemsMod.VERSION, dependencies = AzureRPGItemsMod.DEPENDENCIES)
 public class AzureRPGItemsMod {
-	public static AzureRPGItemsMod instance;
 	public static final String MODID = "azurerpgitems";
+	public static final String VERSION = "2.1.2";
+	public static final String DEPENDENCIES = "required-after:mmorpg;required-after:baubles";
 	public static final Logger LOGGER = LogManager.getLogger();
+	
+	@SidedProxy(clientSide = "mod.azure.azurerpgitems.proxy.ClientProxy", serverSide = "mod.azure.azurerpgitems.proxy.CommonProxy")
+	public static CommonProxy proxy;
 
-	public AzureRPGItemsMod() {
-		{
-			instance = this;
-			ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.spec, "azurerpgitems-config.toml");
-			Config.loadConfig(Config.spec, FMLPaths.CONFIGDIR.get().resolve("azurerpgitems-config.toml").toString());
-			MinecraftForge.EVENT_BUS.register(this);
-		}
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-		MinecraftForge.EVENT_BUS.register(this);
-	}
+	@Mod.Instance
+	public static AzureRPGItemsMod instance;
 
-	private void setup(final FMLCommonSetupEvent event) {
+	@Mod.EventHandler
+	public void preInit(FMLPreInitializationEvent e) {
 
 	}
 
-	private void doClientStuff(final FMLClientSetupEvent event) {
+	@Mod.EventHandler
+	public void init(FMLInitializationEvent e) {
 
 	}
 
-	private void enqueueIMC(final InterModEnqueueEvent event) {
-		if (ModList.get().isLoaded("curios")) {
-			InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("charm"));
-			InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("necklace"));
-			InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("bracelet"));
-			InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("belt"));
-			InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("ring").setSize(2));
-		}
-		if (ModList.get().isLoaded("mmorpg") && Config.INSTANCE.USE_COMPATIBILITY_ON_ITEMS.get()) {
+	@Mod.EventHandler
+	public void postInit(FMLPostInitializationEvent e) {
+		if (Loader.isModLoaded("mmorpg") && ModConfig.USE_COMPATIBILITY_ON_ITEMS) {
 			MinecraftForge.EVENT_BUS.register(new MineSlashHandler());
 		}
-	}
-
-	private void processIMC(final InterModProcessEvent event) {
-
-	}
-
-	@SubscribeEvent
-	public void onServerStarting(FMLServerStartingEvent event) {
-
 	}
 }

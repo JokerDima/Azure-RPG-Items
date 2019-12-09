@@ -1,75 +1,57 @@
 package mod.azure.azurerpgitems.util;
 
-import net.minecraft.item.Item;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.robertx22.items.gearitems.weapons.ItemStaff;
+
+import mod.azure.azurerpgitems.AzureRPGItemsMod;
+import mod.azure.azurerpgitems.items.BaublesBeltItem;
+import mod.azure.azurerpgitems.items.BaublesNecklaceItem;
+import mod.azure.azurerpgitems.items.BaublesRingItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemBow;
+import net.minecraft.item.ItemShield;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
+
+@ObjectHolder(AzureRPGItemsMod.MODID)
 public class AzureRPGItems {
-	public static Item ring1;
-	public static Item ring2;
-	public static Item ring3;
-	public static Item ring4;
-	public static Item necklace1;
-	public static Item necklace2;
-	public static Item necklace3;
-	public static Item necklace4;
-	public static Item belt1;
-	public static Item axe1;
-	public static Item axe2;
-	public static Item axe3;
-	public static Item axe4;
-	public static Item staff1;
-	public static Item staff2;
-	public static Item staff3;
-	public static Item staff4;
-	public static Item shield1;
-	public static Item shield2;
-	public static Item shield3;
-	public static Item shield4;
-	public static Item sword1;
-	public static Item sword2;
-	public static Item sword3;
-	public static Item sword4;
-	public static Item sword5;
-	public static Item sword6;
-	public static Item sword7;
-	public static Item sword8;
-	public static Item bow1;
-	public static Item bow2;
-	public static Item bow3;
-	public static Item bow4;
-	public static Item bow5;
-	public static Item bow6;
-	public static Item bow7;
-	public static Item bow8;
-	public static Item bow9;
-	public static Item bow10;
-	public static Item bow11;
-	public static Item bow12;
-	public static Item bow13;
-	public static Item bow14;
-	public static Item bow15;
-	public static Item bow16;
-	public static Item bow17;
-	public static Item bow18;
-	public static Item bow19;
-	public static Item bow20;
-	public static Item bow21;
-	public static Item bow22;
-	public static Item bow23;
-	public static Item bow24;
-	public static Item bow25;
-	public static Item bow26;
-	public static Item bow27;
-	public static Item bow28;
-	public static Item bow29;
-	public static Item bow30;
-	public static Item bow31;
-	public static Item bow32;
-	public static Item bow33;
-	public static Item bow34;
-	public static Item bow35;
-	public static Item bow36;
-	public static Item bow37;
-	public static Item bow38;
-	public static Item bow39;
-	public static Item bow40;
+	public static Item[] itemList;
+	public static NonNullList<ItemStack> variantList;
+	static {
+		List<Item> items = new ArrayList<Item>();
+		for (int i = 1; i <= 43; i++)
+			items.add(new ItemBow().setRegistryName(new ResourceLocation(AzureRPGItemsMod.MODID, "bow" + i))
+					.setTranslationKey("bow" + i).setCreativeTab(AzureRPGItemsTab.TAB));
+		for (int i = 1; i <= 10; i++)
+			items.add(new ItemSword(ToolMaterial.DIAMOND).setRegistryName(location("sword" + i))
+					.setTranslationKey("sword" + i).setCreativeTab(AzureRPGItemsTab.TAB));
+		for (int i = 1; i <= 9; i++)
+			items.add(new BaublesRingItem().setRegistryName(location("ring" + i)).setTranslationKey("ring" + i)
+					.setCreativeTab(AzureRPGItemsTab.TAB));
+		for (int i = 1; i <= 9; i++)
+			items.add(new ItemStaff().setRegistryName(location("staff" + i)).setTranslationKey("staff" + i)
+					.setCreativeTab(AzureRPGItemsTab.TAB));
+		for (int i = 1; i <= 4; i++)
+			items.add(new BaublesNecklaceItem().setRegistryName(location("necklace" + i)).setTranslationKey("necklace" + i)
+					.setCreativeTab(AzureRPGItemsTab.TAB));
+		for (int i = 1; i <= 4; i++)
+			items.add(new ItemSword(ToolMaterial.DIAMOND).setRegistryName(location("axe" + i))
+					.setTranslationKey("axe" + i).setCreativeTab(AzureRPGItemsTab.TAB));
+		for (int i = 1; i <= 4; i++)
+			items.add(new ItemShield().setRegistryName(location("shield" + i)).setCreativeTab(AzureRPGItemsTab.TAB));
+		items.add(new BaublesBeltItem().setRegistryName(location("belt1")).setTranslationKey("belt1")
+				.setCreativeTab(AzureRPGItemsTab.TAB));
+		AzureRPGItemsMod.LOGGER.info("All Items registered.");
+		itemList = items.toArray(new Item[items.size()]);
+	}
+
+	public static ResourceLocation location(String name) {
+		return new ResourceLocation(AzureRPGItemsMod.MODID, name);
+	}
 }
