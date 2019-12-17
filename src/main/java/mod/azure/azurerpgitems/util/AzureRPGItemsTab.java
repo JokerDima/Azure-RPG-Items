@@ -7,10 +7,17 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class AzureRPGItemsTab {
 
-	public static final ItemGroup TabItemGroup = (new ItemGroup("azurerpgitems") {
+	public static final ItemGroup AccessoriesItemGroup = (new ItemGroup("accessories") {
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack createIcon() {
-			return new ItemStack(AzureRPGItems.ring1);
+			return new ItemStack(AzureRPGItemsRegister.ring);
+		}
+	});
+	
+	public static final ItemGroup WeaponItemGroup = (new ItemGroup("weapons") {
+		@OnlyIn(Dist.CLIENT)
+		public ItemStack createIcon() {
+			return new ItemStack(AzureRPGItemsRegister.axe);
 		}
 	});
 }

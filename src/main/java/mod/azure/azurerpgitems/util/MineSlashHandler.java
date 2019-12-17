@@ -19,19 +19,19 @@ public class MineSlashHandler {
 		for (int i = 1; i <= 4; i++)
 			MineAndSlashAPI.addCompatibleItem(AzureRPGItemsMod.MODID + ":axe" + i,
 					new ConfigItem().setType(Axe.INSTANCE).setSalvagable(true));
-		for (int i = 1; i <= 4; i++)
+		for (int i = 1; i <= 9; i++)
 			MineAndSlashAPI.addCompatibleItem(AzureRPGItemsMod.MODID + ":staff" + i,
 					new ConfigItem().setType(Staff.INSTANCE).setSalvagable(true));
 		for (int i = 1; i <= 4; i++)
 			MineAndSlashAPI.addCompatibleItem(AzureRPGItemsMod.MODID + ":shield" + i,
 					new ConfigItem().setType(Shield.INSTANCE).setSalvagable(true));
-		for (int i = 1; i <= 8; i++)
+		for (int i = 1; i <= 10; i++)
 			MineAndSlashAPI.addCompatibleItem(AzureRPGItemsMod.MODID + ":sword" + i,
 					new ConfigItem().setType(Sword.INSTANCE).setSalvagable(true));
-		for (int i = 1; i <= 40; i++)
+		for (int i = 1; i <= 43; i++)
 			MineAndSlashAPI.addCompatibleItem(AzureRPGItemsMod.MODID + ":bow" + i,
 					new ConfigItem().setType(Bow.INSTANCE).setSalvagable(true));
-		for (int i = 1; i <= 4; i++)
+		for (int i = 1; i <= 9; i++)
 			MineAndSlashAPI.addCompatibleItem(AzureRPGItemsMod.MODID + ":ring" + i,
 					new ConfigItem().setType(Ring.INSTANCE).setSalvagable(true));
 		for (int i = 1; i <= 4; i++)
