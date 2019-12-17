@@ -14,7 +14,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class AzureRPGItemsRegister {
+public class AzureRPGItems {
 	public static Item ring;
 	public static Item necklace;
 	public static Item belt;
@@ -32,7 +32,7 @@ public class AzureRPGItemsRegister {
 							.setRegistryName(location("bow" + i)));
 		for (int i = 1; i <= 10; i++)
 			event.getRegistry()
-					.register(sword = new SwordItem(ItemTier.DIAMOND, 7, 1,
+					.register(sword = new SwordItem(ItemTier.DIAMOND, (20 + i) / 5, -2.4F,
 							new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
 									.setRegistryName(location("sword" + i + "")));
 		for (int i = 1; i <= 9; i++)
@@ -49,7 +49,7 @@ public class AzureRPGItemsRegister {
 							.setRegistryName(location("necklace" + i + "")));
 		for (int i = 1; i <= 4; i++)
 			event.getRegistry()
-					.register(axe = new AxeItem(ItemTier.DIAMOND, 3, 1,
+					.register(axe = new AxeItem(ItemTier.DIAMOND, (20 + i) / 5, -2.4F,
 							new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
 									.setRegistryName(location("axe" + i + "")));
 		for (int i = 1; i <= 4; i++)

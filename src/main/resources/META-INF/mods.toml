@@ -1,25 +1,13 @@
 modLoader="javafml" 
-loaderVersion="[28,)"
-issueTrackerURL="http://my.issue.tracker/" 
+loaderVersion="[29,)"
+issueTrackerURL="https://github.com/AzureZhen/Azure-RPG-Items/issues" 
 [[mods]]
 modId="azurerpgitems"
 version="${file.jarVersion}"
 displayName="Azure RPG Items"
-displayURL="http://example.com/"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/azure-rpg-items"
 logoFile="azurerpglogo.png"
 authors="AzureDoomC" 
 description='''
 This is a small RPG mod with built in support with Mine and Slash and Curios.
 '''
-[[dependencies.azurerpgitems]]
-    modId="curios" 
-    mandatory=true 
-    versionRange="[FORGE-1.14.4-1.0,)" 
-    ordering="NONE"
-    side="BOTH"
-[[dependencies.azurerpgitems]]
-    modId="mmorpg" 
-    mandatory=true 
-    versionRange="[1.14.4-2.9.3,)" 
-    ordering="NONE"
-    side="BOTH"
