@@ -16,47 +16,34 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class AzureRPGItems {
 	public static Item ring;
-	public static Item necklace;
-	public static Item belt;
 	public static Item axe;
-	public static Item staff;
-	public static Item shield;
-	public static Item sword;
-	public static Item bow;
 
 	@SubscribeEvent
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
 		for (int i = 1; i <= 43; i++)
-			event.getRegistry()
-					.register(bow = new BowItem(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
-							.setRegistryName(location("bow" + i)));
+			event.getRegistry().register(new BowItem(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
+					.setRegistryName(location("bow" + i)));
 		for (int i = 1; i <= 10; i++)
 			event.getRegistry()
-					.register(sword = new SwordItem(ItemTier.DIAMOND, (20 + i) / 5, -2.4F,
+					.register(new SwordItem(ItemTier.DIAMOND, (20 + i) / 5, -2.4F,
 							new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
 									.setRegistryName(location("sword" + i + "")));
 		for (int i = 1; i <= 9; i++)
-			event.getRegistry()
-					.register(ring = new Item(new Item.Properties().group(AzureRPGItemsTab.AccessoriesItemGroup))
-							.setRegistryName(location("ring" + i + "")));
-		for (int i = 1; i <= 9; i++)
-			event.getRegistry()
-					.register(staff = new StaffItem(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup), 0)
+			event.getRegistry().registerAll(
+					ring = new Item(new Item.Properties().group(AzureRPGItemsTab.AccessoriesItemGroup))
+							.setRegistryName(location("ring" + i + "")),
+					new StaffItem(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup), 0)
 							.setRegistryName(location("staff" + i + "")));
 		for (int i = 1; i <= 4; i++)
-			event.getRegistry()
-					.register(necklace = new Item(new Item.Properties().group(AzureRPGItemsTab.AccessoriesItemGroup))
-							.setRegistryName(location("necklace" + i + "")));
-		for (int i = 1; i <= 4; i++)
-			event.getRegistry()
-					.register(axe = new AxeItem(ItemTier.DIAMOND, (20 + i) / 5, -2.4F,
+			event.getRegistry().registerAll(
+					axe = new AxeItem(ItemTier.DIAMOND, (20 + i) / 5, -2.4F,
 							new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
-									.setRegistryName(location("axe" + i + "")));
-		for (int i = 1; i <= 4; i++)
-			event.getRegistry()
-					.register(shield = new ShieldItem(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
-							.setRegistryName(location("shield" + i + "")));
-		event.getRegistry().register(belt = new Item(new Item.Properties().group(AzureRPGItemsTab.AccessoriesItemGroup))
+									.setRegistryName(location("axe" + i + "")),
+					new ShieldItem(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
+							.setRegistryName(location("shield" + i + "")),
+					new Item(new Item.Properties().group(AzureRPGItemsTab.AccessoriesItemGroup))
+							.setRegistryName(location("necklace" + i + "")));
+		event.getRegistry().register(new Item(new Item.Properties().group(AzureRPGItemsTab.AccessoriesItemGroup))
 				.setRegistryName(location("belt1")));
 		AzureRPGItemsMod.LOGGER.info("All Items registered.");
 	}
