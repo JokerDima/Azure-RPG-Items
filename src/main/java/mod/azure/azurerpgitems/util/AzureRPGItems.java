@@ -23,7 +23,7 @@ public class AzureRPGItems {
 		for (int i = 1; i <= 43; i++)
 			event.getRegistry().register(new BowItem(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
 					.setRegistryName(location("bow" + i)));
-		for (int i = 1; i <= 10; i++)
+		for (int i = 1; i <= 11; i++)
 			event.getRegistry()
 					.register(new SwordItem(ItemTier.DIAMOND, (20 + i) / 5, -2.4F,
 							new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
@@ -41,6 +41,8 @@ public class AzureRPGItems {
 									.setRegistryName(location("axe" + i + "")),
 					new ShieldItem(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
 							.setRegistryName(location("shield" + i + "")),
+					new Item(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
+							.setRegistryName(location("gem" + i + "")),
 					new Item(new Item.Properties().group(AzureRPGItemsTab.AccessoriesItemGroup))
 							.setRegistryName(location("necklace" + i + "")));
 		event.getRegistry().register(new Item(new Item.Properties().group(AzureRPGItemsTab.AccessoriesItemGroup))
