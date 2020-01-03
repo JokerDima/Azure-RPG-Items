@@ -38,6 +38,7 @@ public class AzureRPGItemsMod {
 
 	private void setup(final FMLCommonSetupEvent event) {
 		MinecraftForge.EVENT_BUS.register(LootHandler.class);
+		MinecraftForge.EVENT_BUS.register(new MineSlashHandler());
 	}
 
 	private void enqueueIMC(final InterModEnqueueEvent event) {
