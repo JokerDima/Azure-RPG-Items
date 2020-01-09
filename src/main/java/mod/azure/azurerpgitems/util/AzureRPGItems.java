@@ -21,32 +21,34 @@ public class AzureRPGItems {
 	@SubscribeEvent
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
 		for (int i = 1; i <= 43; i++)
-			event.getRegistry().register(new BowItem(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
-					.setRegistryName(location("bow" + i)));
+			event.getRegistry()
+					.register(new BowItem(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup).maxDamage(1000))
+							.setRegistryName(location("bow" + i)));
 		for (int i = 1; i <= 11; i++)
 			event.getRegistry()
 					.register(new SwordItem(ItemTier.DIAMOND, (20 + i) / 5, -2.4F,
-							new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
+							new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup).maxDamage(1000))
 									.setRegistryName(location("sword" + i + "")));
 		for (int i = 1; i <= 9; i++)
 			event.getRegistry().registerAll(
-					ring = new Item(new Item.Properties().group(AzureRPGItemsTab.AccessoriesItemGroup))
+					ring = new Item(new Item.Properties().group(AzureRPGItemsTab.AccessoriesItemGroup).maxDamage(1000))
 							.setRegistryName(location("ring" + i + "")),
-					new StaffItem(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup), 0)
+					new StaffItem(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup).maxDamage(1000), 0)
 							.setRegistryName(location("staff" + i + "")));
 		for (int i = 1; i <= 4; i++)
 			event.getRegistry().registerAll(
 					axe = new AxeItem(ItemTier.DIAMOND, (20 + i) / 5, -2.4F,
-							new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
+							new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup).maxDamage(1000))
 									.setRegistryName(location("axe" + i + "")),
-					new ShieldItem(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
+					new ShieldItem(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup).maxDamage(1000))
 							.setRegistryName(location("shield" + i + "")),
-					new Item(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup))
+					new Item(new Item.Properties().group(AzureRPGItemsTab.WeaponItemGroup).maxDamage(1000))
 							.setRegistryName(location("gem" + i + "")),
-					new Item(new Item.Properties().group(AzureRPGItemsTab.AccessoriesItemGroup))
+					new Item(new Item.Properties().group(AzureRPGItemsTab.AccessoriesItemGroup).maxDamage(1000))
 							.setRegistryName(location("necklace" + i + "")));
-		event.getRegistry().register(new Item(new Item.Properties().group(AzureRPGItemsTab.AccessoriesItemGroup))
-				.setRegistryName(location("belt1")));
+		event.getRegistry()
+				.register(new Item(new Item.Properties().group(AzureRPGItemsTab.AccessoriesItemGroup).maxDamage(1000))
+						.setRegistryName(location("belt1")));
 		AzureRPGItemsMod.LOGGER.info("All Items registered.");
 	}
 
