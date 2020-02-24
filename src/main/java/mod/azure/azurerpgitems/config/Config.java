@@ -30,7 +30,7 @@ public class Config {
 
 		USE_COMPATIBILITY_ON_ITEMS = builder
 				.comment("Turns on Auto Compatibility for Mine and Slash stats. Turn off to configure yourself")
-				.translation("dothackweapons.compatibility.use_compatibility_on_items")
+				.translation("azurerpgitems.compatibility.use_compatibility_on_items")
 				.define("USE_COMPATIBILITY_ON_ITEMS", true);
 
 		builder.pop();
