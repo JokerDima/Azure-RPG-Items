@@ -37,39 +37,35 @@ public class Config {
 		public ConfigValue<Integer> BOW_MAXDAMAGE;
 
 		ServerConfig(ForgeConfigSpec.Builder builder) {
-			builder.comment("Mine and Slash Compatibility").push("Mine and Slash Compatibility")
-					.translation("azurerpgitems.config.use_compatibility_on_items");
-			USE_COMPATIBILITY_ON_ITEMS = builder.define("Enable", true);
-			builder.comment("Chest Loot Setting").push("Chest Loot Setting")
-					.translation("azurerpgitems.config.use_chestlootsystem");
-			USE_CHESTLOOTSYSTEM = builder.define("Enable", true);
-			builder.comment("Mine and Slash Loot Setting").push("Mine and Slash Loot Setting")
-					.translation("azurerpgitems.config.use_mineslashlootsystem");
-			USE_MINESLASHLOOTSYSTEM = builder.define("Enable", true);
-			builder.comment("Sets the max duriabily of Accessories").push("Sets the max duriabily of Belts.")
-					.translation("azurerpgitems.config.accessory_maxdamage");
-			BELT_MAXDAMAGE = builder.define("BELT_MAXDAMAGE", 1000);
-			builder.comment("Sets the max duriabily of Rings.").push("Sets the max duriabily of Rings.")
-					.translation("azurerpgitems.config.ring_maxdamage");
-			RING_MAXDAMAGE = builder.define("RING_MAXDAMAGE", 1000);
-			builder.comment("Sets the max duriabily of Shields.").push("Sets the max duriabily of Shields.")
-					.translation("azurerpgitems.config.shields_maxdamage");
-			SHIELD_MAXDAMAGE = builder.define("SHIELD_MAXDAMAGE", 1000);
-			builder.comment("Sets the max duriabily of Necklaces.").push("Sets the max duriabily of Necklaces.")
-					.translation("azurerpgitems.config.necklace_maxdamage");
-			NECKLACE_MAXDAMAGE = builder.define("NECKLACE_MAXDAMAGE", 1000);
-			builder.comment("Sets the max duriabily of Axes.").push("Sets the max duriabily of Axes.")
-					.translation("azurerpgitems.config.axe_maxdamage");
-			AXE_MAXDAMAGE = builder.define("AXE_MAXDAMAGE", 1000);
-			builder.comment("Sets the max duriabily of Staffs.").push("Sets the max duriabily of Staffs.")
-					.translation("azurerpgitems.config.staff_maxdamage");
-			STAFF_MAXDAMAGE = builder.define("STAFF_MAXDAMAGE", 1000);
-			builder.comment("Sets the max duriabily of Swords.").push("Sets the max duriabily of Swords.")
-					.translation("azurerpgitems.config.sword_maxdamage");
-			SWORD_MAXDAMAGE = builder.define("SWORD_MAXDAMAGE", 1000);
-			builder.comment("Sets the max duriabily of Bows.").push("Sets the max duriabily of Bows.")
-					.translation("azurerpgitems.config.bow_maxdamage");
-			BOW_MAXDAMAGE = builder.define("BOW_MAXDAMAGE", 1000);
+			builder.push("general");
+			USE_COMPATIBILITY_ON_ITEMS = builder.comment("Mine and Slash Compatibility")
+					.translation(AzureRPGItemsMod.MODID + ".config.use_compatibility_on_items")
+					.define("USE_COMPATIBILITY_ON_ITEMS", true);
+			USE_CHESTLOOTSYSTEM = builder.comment("Add loot to Chest loot system")
+					.translation(AzureRPGItemsMod.MODID + ".config.use_chestlootsystem")
+					.define("USE_CHESTLOOTSYSTEM", true);
+			USE_MINESLASHLOOTSYSTEM = builder.comment("Add loot to Mine and Slash Loot System")
+					.translation(AzureRPGItemsMod.MODID + ".config.use_mineslashlootsystem")
+					.define("USE_MINESLASHLOOTSYSTEM", true);
+			builder.pop();
+			builder.push("gear");
+			BELT_MAXDAMAGE = builder.comment("Belt Max Damage")
+					.translation(AzureRPGItemsMod.MODID + ".config.belt_maxdamage").define("BELT_MAXDAMAGE", 1000);
+			AXE_MAXDAMAGE = builder.comment("Axe Max Damage")
+					.translation(AzureRPGItemsMod.MODID + ".config.axe_maxdamage").define("AXE_MAXDAMAGE", 1000);
+			STAFF_MAXDAMAGE = builder.comment("Staff Max Damage")
+					.translation(AzureRPGItemsMod.MODID + ".config.staff_maxdamage").define("STAFF_MAXDAMAGE", 1000);
+			SWORD_MAXDAMAGE = builder.comment("Sword Max Damage")
+					.translation(AzureRPGItemsMod.MODID + ".config.sword_maxdamage").define("SWORD_MAXDAMAGE", 1000);
+			BOW_MAXDAMAGE = builder.comment("Bow Max Damage")
+					.translation(AzureRPGItemsMod.MODID + ".config.bow_maxdamage").define("BOW_MAXDAMAGE", 1000);
+			RING_MAXDAMAGE = builder.comment("Lance Max Damage")
+					.translation(AzureRPGItemsMod.MODID + ".config.ring_maxdamage").define("RING_MAXDAMAGE", 1000);
+			SHIELD_MAXDAMAGE = builder.comment("Broad Max Damage")
+					.translation(AzureRPGItemsMod.MODID + ".config.shield_maxdamage").define("SHIELD_MAXDAMAGE", 1000);
+			NECKLACE_MAXDAMAGE = builder.comment("Hand Weapons Max Damage")
+					.translation(AzureRPGItemsMod.MODID + ".config.necklace_maxdamage")
+					.define("NECKLACE_MAXDAMAGE", 1000);
 			builder.pop();
 		}
 	}
