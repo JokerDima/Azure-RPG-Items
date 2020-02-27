@@ -13,6 +13,7 @@ build
 # other
 eclipse
 run
+src/generated
 
 src/main/resources/assets/azurerpgitems/textures
 Build.bat
