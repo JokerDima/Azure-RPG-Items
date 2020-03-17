@@ -292,6 +292,16 @@
                 {
                     "type": "item",
                     "weight": 1,
+                    "name": "azurerpgitems:necklace5"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "azurerpgitems:necklace6"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
                     "name": "azurerpgitems:axe1"
                 },
                 {
